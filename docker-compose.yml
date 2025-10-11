@@ -15,3 +15,6 @@ services:
       MEGA_EMAIL:
       MEGA_PASSWORD:
       MEGA_FOLDER:
+
+    volumes:
+      - ./data:/data
