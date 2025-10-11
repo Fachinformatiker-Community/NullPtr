@@ -160,5 +160,3 @@ values to your liking after that you can run nullptr.
 ## License
 
 Nullptr is protected under the MIT License.
-
-Test commit
