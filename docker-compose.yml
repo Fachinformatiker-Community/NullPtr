@@ -4,14 +4,11 @@ services:
   server:
     image: ghcr.io/fachinformatiker-community/nullptr
     environment:
-      NODE_ENV: development
-      DATABASE_URL: "file:./dev.db"
-
       # The Discord bot token and the owner IDs for managing the bot
       DISCORD_BOT_TOKEN:
       DISCORD_OWNER_IDS:
 
-      # Telegram bot token
+      # Telegram bot token (you can use the discord and/or telegram bot by setting the bot token variables)
       TELEGRAM_BOT_TOKEN:
 
       # MEGA configuration
