@@ -17,4 +17,4 @@ services:
       MEGA_FOLDER:
 
     volumes:
-      - ./data:/data
+      - ./data:/app/data
