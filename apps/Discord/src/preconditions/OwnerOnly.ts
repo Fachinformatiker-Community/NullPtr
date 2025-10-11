@@ -6,7 +6,7 @@ import type{
 	Snowflake
 } from 'discord.js';
 
-export const OWNER_IDS = (process.env.OWNER_IDS ? process.env.OWNER_IDS.split(',') : []).concat('161504025722880000');
+export const OWNER_IDS = (process.env.DISCORD_OWNER_IDS ? process.env.DISCORD_OWNER_IDS.split(',') : []).concat('161504025722880000');
 
 export class UserPrecondition extends Precondition {
 	public override messageRun(message: Message) {
