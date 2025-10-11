@@ -1,5 +1,5 @@
 name: Build and push Docker image
-run-name: ${ github.actor }} is runs ci pipeline
+run-name: ${{ github.actor }} is running the CI pipeline
 on: [ push ]
 
 jobs:
@@ -34,9 +34,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Add "latest" label for master branch
+        if: github.ref == 'refs/heads/master'
+        run: echo "LATEST_TAG=latest" >> $GITHUB_ENV
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ${{ steps.meta.outputs.tags }}
+            ${{ env.LATEST_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
