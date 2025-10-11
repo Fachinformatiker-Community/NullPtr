@@ -8,4 +8,4 @@ COPY . /app
 RUN bun install
 
 # Run the application when the container starts
-ENTRYPOINT ["bun", "run", "dev"]
+ENTRYPOINT ["bun", "run", "start"]

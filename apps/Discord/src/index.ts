@@ -42,7 +42,7 @@ client.once('ready', async () => {
     setInterval(activity, 60000);
 });
 
-client.login(process.env.BOT_TOKEN).then(() =>
+client.login(process.env.DISCORD_BOT_TOKEN).then(() =>
     container.logger.info("Bot is logged in!")
 );
 

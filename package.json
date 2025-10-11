@@ -5,6 +5,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "start": "if [ -n \"$DISCORD_BOT_TOKEN\" ] && [ -n \"$TELEGRAM_BOT_TOKEN\" ]; then turbo run dev; elif [ -n \"$DISCORD_BOT_TOKEN\" ]; then turbo run dev --filter=discord; elif [ -n \"$TELEGRAM_BOT_TOKEN\" ]; then turbo run dev --filter=revolt; else echo 'No token was set!'; fi",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },

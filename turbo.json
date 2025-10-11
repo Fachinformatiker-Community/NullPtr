@@ -1,6 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalEnv": ["TELEGRAM_BOT_TOKEN", "DISCORD_BOT_TOKEN", "NODE_ENV", "OWNER_IDS", "DATABASE_URL", "MEGA_EMAIL", "MEGA_PASSWORD", "MEGA_FOLDER"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
