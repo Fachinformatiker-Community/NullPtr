@@ -1,5 +1,5 @@
 name: Build and push Docker image
-run-name: ${ github.actor }} is runs ci pipeline
+run-name: Github is running the CI pipeline
 on: [ push ]
 
 jobs:
