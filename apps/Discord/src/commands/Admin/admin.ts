@@ -109,13 +109,12 @@ export class AdminCommand extends Subcommand {
         });
 
         if (admins.length === 0) {
-            if (!DISCORD_OWNER_IDS.includes(user.id)) {
-                const embed = new EmbedBuilder()
-                    .setColor(0xFF0000)
-                    .setTitle('Unauthorized')
-                    .setDescription('Only the owner can add the first admin.');
-                EmbedUtils.setFooter(embed, interaction);
-                return interaction.editReply({ embeds: [embed] });
+            const embed = new EmbedBuilder()
+                .setColor(0xFF0000)
+                .setTitle('Unauthorized')
+                .setDescription('Only the owner can add the first admin.');
+            EmbedUtils.setFooter(embed, interaction);
+            return interaction.editReply({ embeds: [embed] });
         }
 
         const discordId = interaction.options.getUser('discordid')?.id;
@@ -140,7 +139,7 @@ export class AdminCommand extends Subcommand {
             const embed = new EmbedBuilder()
                 .setColor(0xFF0000)
                 .setTitle('Already an Admin')
-                .setDescription(`User <@${discordId}> is already an admin.`);
+                .setDescription(`User with Discord ID ${discordId} is already an admin.`);
             EmbedUtils.setFooter(embed, interaction);
             return interaction.editReply({ embeds: [embed] });
         }
@@ -172,7 +171,7 @@ export class AdminCommand extends Subcommand {
         const embed = new EmbedBuilder()
             .setColor(0x00FF00)
             .setTitle('Admin Added')
-            .setDescription(`User <@${discordId}> has been added as an admin.`);
+            .setDescription(`User with Discord ID ${discordId} has been added as an admin.`);
         EmbedUtils.setFooter(embed, interaction);
         return interaction.editReply({ embeds: [embed] });
     }
