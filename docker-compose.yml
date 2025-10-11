@@ -1,34 +1,20 @@
-# Please remember to generate the .env files from the .env.example files inside of every service!
-# We are not using the build in Environment Variables feature of docker
+name: nullptr
+
 services:
-  # turbo service is used to run database migrations and generate files
-  # the service will stop after its done don't worry
-  turbo:
-    image: oven/bun:latest
-    working_dir: /app
-    volumes:
-      - ./:/app
-    command: sh -c "bun install && bun turbo run db:migrate db:generate && exit 0"
-    deploy:
-      restart_policy:
-        condition: none
+  server:
+    image: ghcr.io/fachinformatiker-community/nullptr
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: "file:./dev.db"
 
-  Discord:
-    image: oven/bun:latest
-    working_dir: /app/apps/Discord
-    volumes:
-      - ./:/app
-    command: sh -c "bun install && bun run dev"
-    restart: always
-    depends_on:
-      - turbo
+      # The Discord bot token and the owner IDs for managing the bot
+      DISCORD_BOT_TOKEN:
+      DISCORD_OWNER_IDS:
 
-  Telegram:
-    image: oven/bun:latest
-    working_dir: /app/apps/Telegram
-    volumes:
-      - ./:/app
-    command: sh -c "bun install && bun run dev"
-    restart: always
-    depends_on:
-      - turbo
+      # Telegram bot token
+      TELEGRAM_BOT_TOKEN:
+
+      # MEGA configuration
+      MEGA_EMAIL:
+      MEGA_PASSWORD:
+      MEGA_FOLDER:
