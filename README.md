@@ -84,7 +84,7 @@ Run nullptr from the source and intsall dependencies:
 1. **Clone the repository:**
 
     ```sh
-    ❯ git clone https://github.com/Shinaii/nullptr
+    ❯ git clone https://github.com/Fachinformatiker-Community/NullPtr
     ```
 
 2. **Navigate to the project directory:**
@@ -114,8 +114,8 @@ values to your liking after that you can run nullptr.
 
 ## Contributing
 
-- **🐛 [Report Issues](https://github.com/Shinaii/nullptr/issues)**: Submit bugs found or log feature requests for the `nullptr` project.
-- **💡 [Submit Pull Requests](https://github.com/Shinaii/NullPtr/pulls)**: submit your own PRs.
+- **🐛 [Report Issues](https://github.com/Fachinformatiker-Community/NullPtr/issues)**: Submit bugs found or log feature requests for the `nullptr` project.
+- **💡 [Submit Pull Requests](https://github.com/Fachinformatiker-Community/NullPtr/pulls)**: submit your own PRs.
 
   NOTE: If you submit a PR only do it on the dev branch!
 
@@ -125,7 +125,7 @@ values to your liking after that you can run nullptr.
 1. **Fork the Repository**: Start by forking the project repository to your github account.
 2. **Clone Locally**: Clone the forked repository to your local machine using a git client.
    ```sh
-   git clone https://github.com/Shinaii/nullptr
+   git clone https://github.com/Fachinformatiker-Community/NullPtr
    ```
 3. **Create a New Branch**: Always work on a new branch, giving it a descriptive name.
    ```sh
@@ -148,8 +148,8 @@ values to your liking after that you can run nullptr.
 <summary>Contributor Graph</summary>
 <br>
 <p align="left">
-   <a href="https://github.com{/Shinaii/nullptr/}graphs/contributors">
-      <img src="https://contrib.rocks/image?repo=Shinaii/nullptr">
+   <a href="https://github.com{/Fachinformatiker-Community/nullptr/}graphs/contributors">
+      <img src="https://contrib.rocks/image?repo=Fachinformatiker-Community/nullptr">
    </a>
 </p>
 </details>
