@@ -147,12 +147,13 @@ values to your liking after that you can run nullptr.
 <details closed>
 <summary>Contributor Graph</summary>
 <br>
-<p align="left">
+<p>
    <a href="https://github.com{/Fachinformatiker-Community/nullptr/}graphs/contributors">
       <img src="https://contrib.rocks/image?repo=Fachinformatiker-Community/nullptr">
    </a>
 </p>
 </details>
+</div>
 
 ---
 
