@@ -109,12 +109,14 @@ export class AdminCommand extends Subcommand {
         });
 
         if (admins.length === 0) {
-            const embed = new EmbedBuilder()
-                .setColor(0xFF0000)
-                .setTitle('Unauthorized')
-                .setDescription('Only the owner can add the first admin.');
-            EmbedUtils.setFooter(embed, interaction);
-            return interaction.editReply({ embeds: [embed] });
+            if (!OWNER_IDS.includes(user.id)) {
+                const embed = new EmbedBuilder()
+                    .setColor(0xFF0000)
+                    .setTitle('Unauthorized')
+                    .setDescription('Only the owner can add the first admin.');
+                EmbedUtils.setFooter(embed, interaction);
+                return interaction.editReply({ embeds: [embed] });
+            }
         }
 
         const discordId = interaction.options.getUser('discordid')?.id;
