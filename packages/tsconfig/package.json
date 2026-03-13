@@ -1,0 +1,11 @@
+{
+  "name": "@nullptr/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./base.json": "./base.json",
+    "./bot.json": "./bot.json",
+    "./library.json": "./library.json",
+    "./library-esm.json": "./library-esm.json"
+  }
+}

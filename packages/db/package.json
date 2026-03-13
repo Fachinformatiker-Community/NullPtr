@@ -1,0 +1,35 @@
+{
+  "name": "@nullptr/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "prisma generate && tsc -b",
+    "dev": "tsc -b --watch",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo generated",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "7.5.0",
+    "@prisma/client": "7.5.0",
+    "better-sqlite3": ">=9.0.0"
+  },
+  "devDependencies": {
+    "@nullptr/tsconfig": "workspace:*",
+    "@types/node": "^25.5.0",
+    "prisma": "7.5.0",
+    "typescript": "^5.9.3"
+  }
+}

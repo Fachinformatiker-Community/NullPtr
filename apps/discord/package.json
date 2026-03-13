@@ -1,0 +1,25 @@
+{
+  "name": "@nullptr/discord",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsx watch src/index.ts",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@sapphire/framework": "^5.5.0",
+    "@sapphire/plugin-logger": "^4.1.0",
+    "@sapphire/plugin-subcommands": "^7.0.1",
+    "discord.js": "^14.25.1",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@nullptr/tsconfig": "workspace:*",
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

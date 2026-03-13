@@ -1,0 +1,15 @@
+{
+  "name": "nullptr",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.8.17",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.6.5"
+}

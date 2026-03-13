@@ -1,0 +1,3 @@
+{
+  "extends": "@nullptr/tsconfig/library-esm.json"
+}
