@@ -13,12 +13,12 @@
   },
   "scripts": {
     "build": "prisma generate && tsc -b",
-    "dev": "tsc -b --watch",
     "lint": "tsc --noEmit",
     "clean": "rm -rf dist .turbo generated",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
     "db:studio": "prisma studio"
   },
   "dependencies": {
@@ -26,10 +26,14 @@
     "@prisma/client": "7.5.0",
     "better-sqlite3": ">=9.0.0"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "devDependencies": {
     "@nullptr/tsconfig": "workspace:*",
     "@types/node": "^25.5.0",
     "prisma": "7.5.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

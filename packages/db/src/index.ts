@@ -1,5 +1,5 @@
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
-import { PrismaClient } from '../generated/client/index.js';
+import { PrismaClient } from '../generated/client/client.js';
 
 // ---------------------------------------------------------------------------
 // Singleton – reuses one instance across hot-reloads
@@ -13,8 +13,7 @@ const adapter = new PrismaBetterSqlite3({
   url: process.env.DATABASE_URL ?? 'file:./dev.db',
 });
 
-export const db: PrismaClient =
-  (globalThis.__prismaClient ??= new PrismaClient({ adapter }));
+export const db: PrismaClient = (globalThis.__prismaClient ??= new PrismaClient({ adapter }));
 
-export * from '../generated/client/index.js';
+export * from '../generated/client/client.js';
 export default db;

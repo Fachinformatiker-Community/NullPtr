@@ -6,3 +6,100 @@ generator client {
 datasource db {
   provider = "sqlite"
 }
+
+// ---------------------------------------------------------------------------
+// Internal user – one record per real person, platform-agnostic
+// ---------------------------------------------------------------------------
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts      UserPlatformAccount[]
+  roles         UserRole[]
+  linkingTokens LinkingToken[]
+}
+
+// ---------------------------------------------------------------------------
+// Platform registry  (Discord, Telegram, …)
+// ---------------------------------------------------------------------------
+model Platform {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique   // e.g. "discord", "telegram"
+  createdAt DateTime @default(now())
+
+  accounts      UserPlatformAccount[]
+  linkingTokens LinkingToken[]
+}
+
+// ---------------------------------------------------------------------------
+// Ties an internal User to a platform-specific account
+// ---------------------------------------------------------------------------
+model UserPlatformAccount {
+  id                Int      @id @default(autoincrement())
+  platformAccountId String             // e.g. Discord snowflake / Telegram chat_id
+  username          String?            // display name on that platform, nullable
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  userId     Int
+  platformId Int
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  platform Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+
+  @@unique([platformId, platformAccountId])
+  @@index([userId])
+}
+
+// ---------------------------------------------------------------------------
+// Roles (admin, moderator, member, …)
+// ---------------------------------------------------------------------------
+model Role {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique   // e.g. "admin", "moderator"
+  description String?
+  createdAt   DateTime @default(now())
+
+  users UserRole[]
+}
+
+// ---------------------------------------------------------------------------
+// Explicit many-to-many: User ↔ Role
+// (explicit join table so we can attach metadata like grantedAt / grantedBy)
+// ---------------------------------------------------------------------------
+model UserRole {
+  userId    Int
+  roleId    Int
+  grantedAt DateTime @default(now())
+  grantedBy Int?               // userId of whoever assigned this role, nullable
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@index([roleId])
+}
+
+// ---------------------------------------------------------------------------
+// Short-lived token used to link accounts across platforms
+// e.g. user DMs the bot on Telegram with a code generated on Discord
+// ---------------------------------------------------------------------------
+model LinkingToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?          // null = still valid
+  createdAt DateTime @default(now())
+
+  // The user who initiated the link (already authenticated on one platform)
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Target platform that will consume this token
+  targetPlatformId Int
+  targetPlatform   Platform @relation(fields: [targetPlatformId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([userId])
+}
