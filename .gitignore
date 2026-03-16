@@ -1,9 +1,14 @@
 # Dependencies
 node_modules/
+.pnp
+.pnp.js
 
 # Build outputs
 dist/
+build/
+out/
 .turbo/
+*.tsbuildinfo
 
 # Prisma generated client
 generated/
@@ -11,12 +16,77 @@ generated/
 # Environment files
 .env
 .env.local
+.env.*.local
+.env.development
+.env.production
+.env.staging
+.env.test
+
+# Secrets & credentials
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
 
 # Logs
+logs/
 *.log
 npm-debug.log*
 pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.next/
+.nuxt/
+.vite/
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Editor & IDE
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Misc
+*.tgz
+*.zip
+*.tar.gz
+tmp/
+temp/
