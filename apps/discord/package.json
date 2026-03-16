@@ -10,6 +10,7 @@
     "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
+    "@nullptr/db": "workspace:^",
     "@sapphire/framework": "^5.5.0",
     "@sapphire/plugin-logger": "^4.1.0",
     "@sapphire/plugin-subcommands": "^7.0.1",

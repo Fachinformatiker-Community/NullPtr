@@ -17,6 +17,9 @@ importers:
 
   apps/discord:
     dependencies:
+      '@nullptr/db':
+        specifier: workspace:^
+        version: link:../../packages/db
       '@sapphire/framework':
         specifier: ^5.5.0
         version: 5.5.0
